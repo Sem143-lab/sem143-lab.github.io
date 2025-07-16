@@ -138,7 +138,7 @@
       document.getElementById("responseButtons").style.display = "none";
 
       // Redirect to WhatsApp with "Operation successful"
-      window.location.href = "https://wa.me/919407351379?text=I%20Like You";
+      window.location.href = "https://wa.me/917804072977?text=I%20Like You";
     }
 
     function redirectToWhatsApp() {
