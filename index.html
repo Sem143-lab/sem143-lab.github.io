@@ -47,15 +47,12 @@
     }
   </style>
 </head>
-<body>
+<body onload="tryAutoplay()">
 
-  <!-- 🎵 Background Music -->
   <audio id="bgMusic" loop>
     <source src="Tuhi_Ye_Mujhko_Bata_De.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
   </audio>
 
-  <!-- 💌 Envelope Button -->
   <div class="container">
     <div class="envelope" onclick="showMessage()">
       <span>Click Me 💌</span>
@@ -64,26 +61,19 @@
   </div>
 
   <script>
+    function tryAutoplay() {
+      const audio = document.getElementById("bgMusic");
+      audio.play().catch(() => {
+        // autoplay blocked
+      });
+    }
+
     function showMessage() {
       const audio = document.getElementById("bgMusic");
       const message = document.getElementById("message");
-
-      // Try playing music
-      audio.play().catch(() => {
-        console.warn("Autoplay blocked. Will play after interaction.");
-      });
-
-      // Show the message
+      audio.play();
       message.style.display = "block";
     }
-
-    // Try autoplay on load (may fail silently in browsers)
-    window.onload = function () {
-      const audio = document.getElementById("bgMusic");
-      audio.play().catch(() => {
-        // Fallback: music will play on first user click
-      });
-    };
   </script>
 </body>
 </html>
