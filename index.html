@@ -23,7 +23,7 @@
       height: 120px;
       background-color: #ff6f91;
       border-radius: 10px;
-      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+      box-shadow: 4px 10px 20px rgba(0, 0, 0, 0.3);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -40,40 +40,100 @@
 
     #message {
       font-family: 'Pacifico', cursive;
-      font-size: 32px;
+      font-size: 40px;
       color: #d41a1a;
-      margin-top: 40px;
+      margin-top: 60px;
       display: none;
+    }
+
+    .buttons {
+      margin-top: 30px;
+      display: none;
+    }
+
+    .buttons button {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 2px 6px 15px rgba(0,0,0,0.2);
+      transition: background-color 0.3s;
+    }
+
+    .yes-btn {
+      background-color: #28a745;
+      color: white;
+    }
+
+    .yes-btn:hover {
+      background-color: #218838;
+    }
+
+    .no-btn {
+      background-color: #dc3545;
+      color: white;
+    }
+
+    .no-btn:hover {
+      background-color: #c82333;
     }
   </style>
 </head>
-<body onload="tryAutoplay()">
+<body>
 
+  <!-- 🎵 Background Music -->
   <audio id="bgMusic" loop>
     <source src="Tuhi_Ye_Mujhko_Bata_De.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
   </audio>
 
+  <!-- 💌 Envelope Button -->
   <div class="container">
     <div class="envelope" onclick="showMessage()">
       <span>Click Me 💌</span>
     </div>
     <p id="message">Do you like me? 😍</p>
+
+    <!-- Yes / No Buttons -->
+    <div class="buttons" id="responseButtons">
+      <button class="yes-btn" onclick="replyLove()">Yes ❤️</button>
+      <button class="no-btn" onclick="redirectToWhatsApp()">No 💔</button>
+    </div>
   </div>
 
   <script>
-    function tryAutoplay() {
-      const audio = document.getElementById("bgMusic");
-      audio.play().catch(() => {
-        // autoplay blocked
-      });
-    }
-
     function showMessage() {
       const audio = document.getElementById("bgMusic");
       const message = document.getElementById("message");
-      audio.play();
+      const buttons = document.getElementById("responseButtons");
+
+      audio.play().catch(() => {
+        console.warn("Autoplay blocked. Playing after interaction.");
+      });
+
       message.style.display = "block";
+      buttons.style.display = "flex";
     }
+
+    function replyLove() {
+      const message = document.getElementById("message");
+      message.innerText = "I love you too ❤️";
+      document.getElementById("responseButtons").style.display = "none";
+    }
+
+    function redirectToWhatsApp() {
+      window.location.href = "https://wa.me/919407351379";
+    }
+
+    window.onload = function () {
+      const audio = document.getElementById("bgMusic");
+      audio.play().catch(() => {
+        // Music will play on click
+      });
+    };
   </script>
+
 </body>
 </html>
