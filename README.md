@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -20,7 +20,7 @@
 
     .heading {
       font-family: 'Pacifico', cursive;
-      font-size: 86px;
+      font-size: 106px;
       color: #007BFF;
       text-shadow: 1 2 40px #007BFF;
       -webkit-text-stroke: 2px #0056b3;
@@ -37,7 +37,7 @@
       align-items: center;
       justify-content: center;
       color: white;
-      font-size: 22px;
+      font-size: 140px;
       font-weight: bold;
       cursor: pointer;
       transition: transform 0.2s;
@@ -155,4 +155,4 @@
   </script>
 
 </body>
-</html>
+</html
