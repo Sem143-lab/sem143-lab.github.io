@@ -37,7 +37,7 @@
       align-items: center;
       justify-content: center;
       color: white;
-      font-size: 240px;
+      font-size: 190px;
       font-weight: bold;
       cursor: pointer;
       transition: transform 0.2s;
