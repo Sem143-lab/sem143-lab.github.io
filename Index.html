@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Special For You 💌</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #ffecd2, #fcb69f);
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      padding-top: 100px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .envelope {
+      width: 200px;
+      height: 120px;
+      background-color: #ff6f91;
+      border-radius: 10px;
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 22px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .envelope:hover {
+      transform: scale(1.05);
+    }
+
+    #message {
+      font-family: 'Pacifico', cursive;
+      font-size: 32px;
+      color: #d41a1a;
+      margin-top: 40px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 🎵 Background Music -->
+  <audio id="bgMusic" loop>
+    <source src="Tuhi_Ye_Mujhko_Bata_De.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- 💌 Envelope Button -->
+  <div class="container">
+    <div class="envelope" onclick="showMessage()">
+      <span>Click Me 💌</span>
+    </div>
+    <p id="message">Do you like me? 😍</p>
+  </div>
+
+  <script>
+    function showMessage() {
+      const audio = document.getElementById("bgMusic");
+      const message = document.getElementById("message");
+
+      // Try playing music
+      audio.play().catch(() => {
+        console.warn("Autoplay blocked. Will play after interaction.");
+      });
+
+      // Show the message
+      message.style.display = "block";
+    }
+
+    // Try autoplay on load (may fail silently in browsers)
+    window.onload = function () {
+      const audio = document.getElementById("bgMusic");
+      audio.play().catch(() => {
+        // Fallback: music will play on first user click
+      });
+    };
+  </script>
+</body>
+</html>
