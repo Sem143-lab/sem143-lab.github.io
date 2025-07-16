@@ -9,7 +9,7 @@
       background: linear-gradient(to right, #ffecd2, #fcb69f);
       font-family: 'Arial', sans-serif;
       text-align: center;
-      padding-top: 100px;
+      padding-top: 500px;
     }
 
     .container {
@@ -18,12 +18,21 @@
       align-items: center;
     }
 
+    .heading {
+      font-family: 'Pacifico', cursive;
+      font-size: 86px;
+      color: #007BFF;
+      text-shadow: 1 2 40px #007BFF;
+      -webkit-text-stroke: 2px #0056b3;
+      margin-bottom: 70px;
+    }
+
     .envelope {
-      width: 200px;
-      height: 120px;
+      width: 800px;
+      height: 300px;
       background-color: #ff6f91;
-      border-radius: 10px;
-      box-shadow: 4px 10px 20px rgba(0, 0, 0, 0.3);
+      border-radius: 50px;
+      box-shadow: 10px 20px 50px rgba(0, 0, 0, 0.3);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -40,25 +49,25 @@
 
     #message {
       font-family: 'Pacifico', cursive;
-      font-size: 40px;
+      font-size: 70px;
       color: #d41a1a;
-      margin-top: 60px;
+      margin-top: 90px;
       display: none;
     }
 
     .buttons {
-      margin-top: 30px;
+      margin-top: 50px;
       display: none;
     }
 
     .buttons button {
-      padding: 10px 20px;
-      margin: 10px;
-      font-size: 18px;
+      padding: 30px 60px;
+      margin: 20px;
+      font-size: 50px;
       border: none;
       border-radius: 8px;
       cursor: pointer;
-      box-shadow: 2px 6px 15px rgba(0,0,0,0.2);
+      box-shadow: 10px 20px 40px rgba(0,0,0,0.2);
       transition: background-color 0.3s;
     }
 
@@ -89,14 +98,20 @@
     Your browser does not support the audio element.
   </audio>
 
-  <!-- 💌 Envelope Button -->
   <div class="container">
+
+    <!-- 💙 Welcome Heading -->
+    <div class="heading">Welcome to Sandesh's web</div>
+
+    <!-- 💌 Envelope Button -->
     <div class="envelope" onclick="showMessage()">
       <span>Click Me 💌</span>
     </div>
+
+    <!-- 🥰 Main Message -->
     <p id="message">Do you like me? 😍</p>
 
-    <!-- Yes / No Buttons -->
+    <!-- ❤️ Yes / 💔 No Buttons -->
     <div class="buttons" id="responseButtons">
       <button class="yes-btn" onclick="replyLove()">Yes ❤️</button>
       <button class="no-btn" onclick="redirectToWhatsApp()">No 💔</button>
@@ -121,10 +136,14 @@
       const message = document.getElementById("message");
       message.innerText = "I love you too ❤️";
       document.getElementById("responseButtons").style.display = "none";
+
+      // Redirect to WhatsApp with "Operation successful"
+      window.location.href = "https://wa.me/919407351379?text=I%20Like You";
     }
 
     function redirectToWhatsApp() {
-      window.location.href = "https://wa.me/919407351379";
+      // Redirect to WhatsApp with "Why you are not like me?"
+      window.location.href = "https://wa.me/919407351379?text=I%20Dont%20Like%20You%3F";
     }
 
     window.onload = function () {
